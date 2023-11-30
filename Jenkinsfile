@@ -22,7 +22,7 @@ pipeline
         {
             steps
             {
-                sh ' sudo docker run -it -d app '
+                sh ' sudo docker run -it app '
             }
         }
     }
