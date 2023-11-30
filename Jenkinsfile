@@ -8,7 +8,7 @@ pipeline
             steps
             {
                 sh ' sudo rm -rf /var/lib/jenkins/workspace/Docker/* '
-                sh ' sudo git clone -b python https://github.com/karthikjogi758/docker_jenkins.git '
+                sh ' sudo git clone https://github.com/karthikjogi758/docker_jenkins.git '
             }
         }
         stage("Build")
