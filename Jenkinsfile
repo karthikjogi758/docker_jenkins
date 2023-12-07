@@ -3,26 +3,33 @@ pipeline
     agent any
     stages
     {
-        stage("Clone")
-        {   
-            steps
-            {
-                sh ' sudo rm -rf /var/lib/jenkins/workspace/Docker/* '
-                sh ' sudo git clone https://github.com/karthikjogi758/docker_jenkins.git '
-            }
-        }
-        stage("Build")
+        stage ("clean")
         {
             steps
             {
-                sh ' sudo docker build -t app /var/lib/jenkins/workspace/Docker/Docker-jenkins-tasks  '
+                echo "hello jenkin"
+                 sh 'rm -rf /var/lib/jenkins/workspace/dock_jen1/*'
             }
         }
-        stage("Run")
+        stage ("clone")
         {
             steps
             {
-                sh ' sudo docker run -it app '
+                sh 'git clone -b master https://github.com/karthikjogi758/docker_jenkins.git'
+            }
+        }
+        stage ("build")
+        {
+            steps
+            {
+                sh 'sudo docker build -t image1 /var/lib/jenkins/workspace/dock_jen1/docker_jenkins'
+            }
+        }
+        stage ("run")
+        {
+            steps
+            {
+                sh 'sudo docker run -it -d image1'
             }
         }
     }
