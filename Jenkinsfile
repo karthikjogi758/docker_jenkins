@@ -22,14 +22,14 @@ pipeline
         {
             steps
             {
-                sh 'sudo docker build -t image1 /var/lib/jenkins/workspace/jenkin1/docker_jenkins'
+                sh 'sudo docker build -t image2 /var/lib/jenkins/workspace/jenkin1/docker_jenkins'
             }
         }
         stage ("run")
         {
             steps
             {
-                sh 'sudo docker run -it -d image1'
+                sh 'sudo docker run -it -d image2'
             }
         }
     }
