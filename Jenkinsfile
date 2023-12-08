@@ -8,7 +8,7 @@ pipeline
             steps
             {
                 echo "hello jenkin"
-                 sh 'rm -rf /var/lib/jenkins/workspace/dock_jen1/*'
+                 sh 'rm -rf /var/lib/jenkins/workspace/jenkin1/*'
             }
         }
         stage ("clone")
@@ -22,7 +22,7 @@ pipeline
         {
             steps
             {
-                sh 'sudo docker build -t image1 /var/lib/jenkins/workspace/dock_jen1/docker_jenkins'
+                sh 'sudo docker build -t image1 /var/lib/jenkins/workspace/jenkin1/docker_jenkins'
             }
         }
         stage ("run")
