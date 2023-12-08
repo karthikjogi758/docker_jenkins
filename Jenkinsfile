@@ -3,33 +3,33 @@ pipeline
     agent any
     stages
     {
-        stage ("clean")
+        stage("Clean")
         {
             steps
             {
-                echo "hello jenkin"
-                 sh 'rm -rf /var/lib/jenkins/workspace/jenkin1/*'
+                echo " hello jenkin "
+                sh ' rm -rf /var/lib/jenkins/workspace/jenkin1/* '
             }
         }
-        stage ("clone")
+        stage("Clone")
         {
             steps
             {
-                sh 'git clone -b master https://github.com/karthikjogi758/docker_jenkins.git'
+                sh ' git clone -b master https://github.com/karthikjogi758/docker_jenkins.git '
             }
         }
-        stage ("build")
+        stage("Build")
         {
             steps
             {
-                sh 'sudo docker build -t image2 /var/lib/jenkins/workspace/jenkin1/docker_jenkins'
+                sh ' sudo docker build -t image1 /var/lib/jenkins/workspace/jenkin1/docker_jenkins '
             }
         }
-        stage ("run")
+        stage("Deploy")
         {
             steps
             {
-                sh 'sudo docker run -it -d image2'
+                sh ' sudo docker run -it -d image1 '
             }
         }
     }
